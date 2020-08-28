@@ -1,4 +1,14 @@
 const http = require('http');
+const {CoinbasePro} = require('coinbase-pro-node');
+const auth = {
+  apiKey: 'a9d1170ee1b59701534ab511737dc373',
+  apiSecret: '82uK9scpcy3ckFX7bJdxJmNFN5mEudpn5gW9xrFpjOz2wKDZDHjOluTUbuDy+URg1hl6KlqRNB1vrz3/2yV2Qg==',
+  passphrase: 'pbz5vscdk6d',
+  // The Sandbox is for testing only and offers a subset of the products/assets:
+  // https://docs.pro.coinbase.com/#sandbox
+  useSandbox: true,
+};
+const client = new CoinbasePro(auth);
 
 http.createServer((request, response) => {
   console.log(`Request url: ${request.url}`);
@@ -18,47 +28,40 @@ http.createServer((request, response) => {
     });
 
     checkConnectionToRestore(request, response, eventHistory);
-
     sendEvents(response, eventHistory);
+    console.log("tick")
   } else {
     response.writeHead(404);
-    response.end();  
+    response.end();
   }
 }).listen(5000, () => {
   console.log('Server running at http://127.0.0.1:5000/');
 });
 
 function sendEvents(response, eventHistory) {
-  setTimeout(() => {
-    if (!response.finished) {
-      const eventString = 'id: 1\nevent: flightStateUpdate\ndata: {"flight": "I768", "state": "landing"}\n\n';
-      response.write(eventString);
-      eventHistory.push(eventString);
-    }
-  }, 3000);
+  console.log("hi")
+  const client = new CoinbasePro(auth);
+  //while(true) {
+    setTimeout(() => { client.rest.product.getProductTicker("BTC-USD").then(data => {
+        //if (!response.finished) {
+          console.log("coin tick")
+          var eventString = 'id: 1\nevent: coinStateUpdate\ndata: {"coin": "BTC", "price":' + data.bid +'}\n\n';
+          response.write(eventString);
+          eventHistory.push(eventString);
+          console.log(data)
+        //}
+      })
+      .catch(error => {
+        console.log("error" + error)
+        // handle the error
+    });}, 3000);
 
-  setTimeout(() => {
-    if (!response.finished) {
-      const eventString = 'id: 2\nevent: flightStateUpdate\ndata: {"flight": "I768", "state": "landed"}\n\n';
-      response.write(eventString);
-      eventHistory.push(eventString);
-    }
-  }, 6000);
+  //}
+  // const eventString = 'id: 1\nevent: coinStateUpdate\ndata: {"coin": "BTC", "price":' + data.price +'}\n\n';
+  // response.write(eventString);
+  // eventHistory.push(eventString);
+  //Make the request
 
-  setTimeout(() => {
-    if (!response.finished) {
-      const eventString = 'id: 3\nevent: flightRemoval\ndata: {"flight": "I768"}\n\n';
-      response.write(eventString);
-      eventHistory.push(eventString);
-    }
-  }, 9000);
-
-  setTimeout(() => {
-    if (!response.finished) {
-      const eventString = 'id: 4\nevent: closedConnection\ndata: \n\n';
-      eventHistory.push(eventString);
-    }
-  }, 12000);
 }
 
 function closeConnection(response) {

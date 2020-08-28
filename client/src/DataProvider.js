@@ -31,3 +31,15 @@ export function getInitialFlightData() {
     state: ''
   }];
 }
+
+export function getInitialCoinData() {
+  return [{
+    coin: 'BTC',
+    price: '1000',
+    data: '08:15'
+  },{
+    coin: 'ETH',
+    price: '2000',
+    data: '08:15'
+  }];
+}
