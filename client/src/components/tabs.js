@@ -6,6 +6,9 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
+import AccountsEdit from './crud/accounts-edit'
+import TrackersEdit from './crud/trackers-edit'
+import UsersEdit from './crud/users-edit'
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -20,7 +23,7 @@ function TabPanel(props) {
     >
       {value === index && (
         <Box p={3}>
-          <Typography>{children}</Typography>
+          <Typography component={'span'}>{children}</Typography>
         </Box>
       )}
     </div>
@@ -56,22 +59,22 @@ export default function SimpleTabs() {
   };
 
   return (
-    <div className={classes.root}>
+    <div>
       <AppBar position="static">
         <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
-          <Tab label="Item One" {...a11yProps(0)} />
-          <Tab label="Item Two" {...a11yProps(1)} />
-          <Tab label="Item Three" {...a11yProps(2)} />
+          <Tab label="Accounts" {...a11yProps(0)} />
+          <Tab label="Trackers" {...a11yProps(1)} />
+          <Tab label="Users" {...a11yProps(2)} />
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
-        Item One
+        <AccountsEdit />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Item Two
+        <TrackersEdit />
       </TabPanel>
       <TabPanel value={value} index={2}>
-        Item Three
+        <UsersEdit />
       </TabPanel>
     </div>
   );

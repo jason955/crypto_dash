@@ -22,6 +22,7 @@ createAccount = (req, res) => {
             return res.status(201).json({
                 success: true,
                 id: account._id,
+                name: account.name,
                 message: 'Account created!',
             })
         })
