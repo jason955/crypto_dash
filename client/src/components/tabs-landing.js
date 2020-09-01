@@ -11,6 +11,7 @@ import TrackersEdit from './crud/trackers-edit'
 import UsersEdit from './crud/users-edit'
 import Popup from './basic/popup'
 import logout from './logout.png'
+import styles from './style.css';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -72,7 +73,7 @@ export default function SimpleTabs() {
           <Tab label="Trackers" {...a11yProps(1)} />
           <Tab label="Users" {...a11yProps(2)} />
           <div>
-             <img src={logout} alt="LOGOUT" style={{width:"10%"}} />
+             <img className="logout" src={logout} alt="LOGOUT" />
           </div>
         </Tabs>
 
