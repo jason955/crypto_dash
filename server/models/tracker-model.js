@@ -5,7 +5,7 @@ let Tracker = new Schema({
     name: {
         type: String
     },
-    description: {
+    goal: {
         type: String
     }
 });

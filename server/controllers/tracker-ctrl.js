@@ -103,7 +103,7 @@ getTrackerById = async (req, res) => {
 }
 
 getTrackers = async (req, res) => {
-    await Tracker.find({}, (err, Trackers) => {
+    await Tracker.find({}, (err, trackers) => {
         if (err) {
             return res.status(400).json({ success: false, error: err })
         }

@@ -6,14 +6,11 @@ import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
 import BackendTable from '../basic/backend-table';
 import axios from 'axios';
 
-// { name: 'Acorns', desc: 'Round up Mutual Fund', total: 600, prevTotal: 500 },
-// { name: 'Vanguard', desc: 'Mutual Fund', total: 600, prevTotal: 500 },
-// { name: 'Crypto', desc: 'Gambling', total: 600, prevTotal: 500 },
-// { name: 'Savings', desc: 'Savings Bank Account', total: 600, prevTotal: 500 },
-// { name: 'Loan - Wells', desc: 'Wells Loan', total: 600, prevTotal: 500 },
-// { name: 'Loan - Nelnet', desc: 'Nelnet Loan', total: 600, prevTotal: 500 },
-// { name: 'Loan - Car', desc: 'Car loan', total: 600, prevTotal: 500 },
+/*************************
+* Table for Accounts
+*************************/
 class AccountsEdit extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -28,81 +25,44 @@ class AccountsEdit extends React.Component {
     }
   }
 
+  /*************************
+  * Table for Accounts
+  *************************/
   componentDidMount() {
-    //this.fetchUsers();
-    //this.timer = setInterval(() => this.fetchUsers(), 5000);
-    let ex =[ { name: 'Acorns', description: 'bund up Mutual Fund', total: 600, previous_totals: 500 },
-    { name: 'Vanguard', description: 'Mutual Fund', total: 600, previous_totals: 500 },
-    { name: 'Crypto', description: 'Gambling', total: 600, previous_totals: 500 },
-    { name: 'Savings', description: 'Savings Bank Account', total: 600, previous_totals: 500 },
-    { name: 'Loan - Wells', description: 'Wells Loan', total: 600, previous_totals: 500 },
-    { name: 'Loan - Nelnet', description: 'Nelnet Loan', total: 600, previous_totals: 500 },
-    { name: 'Loan - Car', description: 'Car loan', total: 600, previous_totals: 500 },]
-
-    this.setState({...this.state, data: ex, isFetching: false});
+    this.fetchUsers();
   }
+
   fetchUsers() {
-
     this.setState({...this.state, isFetching: true});
-    axios.get('http://localhost:4000/api/accounts')
-        .then( res => {
-            let final_data = [];
-            let ret_data = res.data.data;
-            let list_data = ret_data.map((data, index) =>
-              final_data[index] = {name:data.name, description:data.description, total:data.total, previous_totals:data.previous_totals}
-            );
-            let ex =[ { name: 'Acorns', description: 'bund up Mutual Fund', total: 600, previous_totals: 500 },
-            { name: 'Vanguard', description: 'Mutual Fund', total: 600, previous_totals: 500 },
-            { name: 'Crypto', description: 'Gambling', total: 600, previous_totals: 500 },
-            { name: 'Savings', description: 'Savings Bank Account', total: 600, previous_totals: 500 },
-            { name: 'Loan - Wells', description: 'Wells Loan', total: 600, previous_totals: 500 },
-            { name: 'Loan - Nelnet', description: 'Nelnet Loan', total: 600, previous_totals: 500 },
-            { name: 'Loan - Car', description: 'Car loan', total: 600, previous_totals: 500 },]
-            // this.setState({
-            //     data: ex
-            // })
-            console.log(this.state.data);
-        })
-        .catch( err => console.log(err));
-        let ex =[ { name: 'Acorns', description: 'bund up Mutual Fund', total: 600, previous_totals: 500 },
-        { name: 'Vanguard', description: 'Mutual Fund', total: 600, previous_totals: 500 },
-        { name: 'Crypto', description: 'Gambling', total: 600, previous_totals: 500 },
-        { name: 'Savings', description: 'Savings Bank Account', total: 600, previous_totals: 500 },
-        { name: 'Loan - Wells', description: 'Wells Loan', total: 600, previous_totals: 500 },
-        { name: 'Loan - Nelnet', description: 'Nelnet Loan', total: 600, previous_totals: 500 },
-        { name: 'Loan - Car', description: 'Car loan', total: 600, previous_totals: 500 },]
 
-        this.setState({...this.state, data: ex, isFetching: false});
+    let config = {
+      method: "get",
+      url: 'http://localhost:4000/api/accounts',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    };
 
+    axios(config)
+    .then(response => {
+      let final_data = [];
+      let ret_data = response.data.data;
+      let list_data = ret_data.map((data, index) =>
+        final_data[index] = {_id: data._id, name:data.name, description:data.description, total:data.total, previous_totals:data.previous_totals}
+      );
+      this.setState({
+          ...this.state,
+          data: final_data,
+          isFetching: false
+      })
+    })
+    .catch(error => {
+      this.setState({...this.state, isFetching: false});
+      console.log(error);
+    });
   }
-  //may need this for later. see backend-table for hints
-  componentDidUpdate() {
-    // axios.get('http://localhost:4000/api/accounts')
-    //     .then( res => {
-    //         let final_data = [];
-    //         let ret_data = res.data.data;
-    //         let list_data = ret_data.map((data, index) =>
-    //           final_data[index] = {name:data.name, description:data.description, total:data.total, previous_totals:data.previous_totals}
-    //         );
-    //         let ex =[ { name: 'Acorns', desc: 'Round up Mutual Fund', total: 600, prevTotal: 500 },
-    //         { name: 'Vanguard', desc: 'Mutual Fund', total: 600, prevTotal: 500 },
-    //         { name: 'Crypto', desc: 'Gambling', total: 600, prevTotal: 500 },
-    //         { name: 'Savings', desc: 'Savings Bank Account', total: 600, prevTotal: 500 },
-    //         { name: 'Loan - Wells', desc: 'Wells Loan', total: 600, prevTotal: 500 },
-    //         { name: 'Loan - Nelnet', desc: 'Nelnet Loan', total: 600, prevTotal: 500 },
-    //         { name: 'Loan - Car', desc: 'Car loan', total: 600, prevTotal: 500 },]
-    //         this.setState({
-    //             data: ex
-    //         })
-    //         console.log(this.state.data);
-    //     })
-    //     .catch( err => console.log(err));
-  }
-
-
 
   render(props) {
-    console.log(this.state.data)
     return (
       <BackendTable
        name={"Accounts"}
@@ -112,4 +72,5 @@ class AccountsEdit extends React.Component {
     );
   }
 }
- export default AccountsEdit;
+
+export default AccountsEdit;
