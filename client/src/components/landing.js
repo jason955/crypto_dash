@@ -1,7 +1,7 @@
 import React from 'react';
 import MaterialTable from 'material-table';
 import axios from 'axios';
-
+import Tabs from './tabs-landing'
 /*************************
 * Landing page for user
 *************************/
@@ -13,19 +13,13 @@ class Landing extends React.Component{
     }
   }
 
-  /*************************
-  * Update when the data updates
-  * TODO: Change/Test to see when this is called
-  *************************/
-  componentDidUpdate(prevProps) { //watch for updates
-    if (prevProps.data.length != this.props.data.length) {
-      this.setState({data:this.props.data})
-    }
-  }
-
 
   render(props) {
-    return (<div> p </div>)
+    return (
+      <div>
+        <Tabs />
+      </div>
+    )
   }
 }
 export default Landing;

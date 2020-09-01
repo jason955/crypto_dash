@@ -23,10 +23,10 @@ class TrackersEdit extends React.Component {
   }
 
   componentDidMount() {
-    this.fetchUsers();
+    this.fetchTrackers();
   }
 
-  fetchUsers() {
+  fetchTrackers() {
     this.setState({...this.state, isFetching: true});
 
     let config = {
