@@ -33,29 +33,7 @@ class BackendTable extends React.Component{
   *               if post dont add /:id
   *************************/
   updateDB(data, flag) {
-    let id = "/" + data._id;
-    let payload = JSON.stringify(data);
-
-    if (flag === "post") {
-      id = "";
-    }
-
-    let config = {
-      method: flag,
-      url: 'http://localhost:4000/api/account' + id,
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      data : payload
-    };
-
-    axios(config)
-    .then(function (response) {
-      console.log(JSON.stringify(response.data));
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+    this.props.updateDB(data, flag);
   }
 
   render(props) {

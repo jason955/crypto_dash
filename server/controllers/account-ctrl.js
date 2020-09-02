@@ -52,8 +52,9 @@ updateAccount = async (req, res) => {
             })
         }
         account.name = body.name
-        account.time = body.time
-        account.rating = body.rating
+        account.description = body.description
+        account.total = body.total
+        account.previous_totals = body.previous_totals
         account
             .save()
             .then(() => {

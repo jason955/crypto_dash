@@ -9,10 +9,10 @@ let Account = new Schema({
         type: String
     },
     total: {
-        type: String
+        type: Number
     },
     previous_totals: {
-        type: String
+        type: [Number]
     }
 });
 

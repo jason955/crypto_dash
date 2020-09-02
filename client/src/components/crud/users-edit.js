@@ -56,12 +56,39 @@ class UsersEdit extends React.Component {
     });
   }
 
+  updateDB(data, flag) {
+    let id = "/" + data._id;
+    let payload = JSON.stringify(data);
+
+    if (flag === "post") {
+      id = "";
+    }
+
+    let config = {
+      method: flag,
+      url: 'http://localhost:4000/api/user' + id,
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      data : payload
+    };
+
+    axios(config)
+    .then(function (response) {
+      console.log(JSON.stringify(response.data));
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
+
   render(props) {
     return (
       <BackendTable
        name={"Users"}
        columns = {this.state.columns}
        data = {this.state.data}
+       updateDB = {this.updateDB}
        />
     );
   }

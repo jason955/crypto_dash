@@ -51,8 +51,7 @@ updateTracker = async (req, res) => {
             })
         }
         tracker.name = body.name
-        tracker.time = body.time
-        tracker.rating = body.rating
+        tracker.goal = body.goal
         tracker
             .save()
             .then(() => {

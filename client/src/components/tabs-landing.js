@@ -10,6 +10,9 @@ import AccountsEdit from './crud/accounts-edit'
 import TrackersEdit from './crud/trackers-edit'
 import UsersEdit from './crud/users-edit'
 import Popup from './basic/popup'
+import AccountGraphs from './landing/accounts-graph'
+import TrackerGraphs from './landing/trackers-graph'
+import CryptoKingdom from './landing/crypto-kingdom'
 import logout from './logout.png'
 import styles from './style.css';
 
@@ -71,21 +74,21 @@ export default function SimpleTabs() {
         <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
           <Tab label="Accounts" {...a11yProps(0)} />
           <Tab label="Trackers" {...a11yProps(1)} />
-          <Tab label="Users" {...a11yProps(2)} />
+          <Tab label="Crypto" {...a11yProps(2)} />
+
           <div>
              <img className="logout" src={logout} alt="LOGOUT" />
           </div>
         </Tabs>
-
       </AppBar>
       <TabPanel value={value} index={0}>
-        <p>p</p>
+        <AccountGraphs />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <p>pa</p>
+        <TrackerGraphs />
       </TabPanel>
       <TabPanel value={value} index={2}>
-        <p>pd</p>
+        <CryptoKingdom />
       </TabPanel>
     </div>
   );

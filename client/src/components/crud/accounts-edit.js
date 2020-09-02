@@ -62,12 +62,47 @@ class AccountsEdit extends React.Component {
     });
   }
 
+  updateDB(data, flag) {
+    let id = "/" + data._id;
+    //let payload = JSON.stringify(data);
+    let prevs = data.previous_totals;
+    console.log(data)
+    //if (prevs.isArray())
+    prevs = prevs.split(",")
+    let final_prev = []
+    prevs.map((p) =>
+      final_prev.push(parseInt(p))
+    );
+    data.previous_totals = final_prev
+    if (flag === "post") {
+      id = "";
+    }
+
+    let config = {
+      method: flag,
+      url: 'http://localhost:4000/api/account' + id,
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      data : data
+    };
+
+    axios(config)
+    .then(function (response) {
+      console.log(JSON.stringify(response.data));
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
+
   render(props) {
     return (
       <BackendTable
        name={"Accounts"}
        columns = {this.state.columns}
        data = {this.state.data}
+       updateDB = {this.updateDB}
        />
     );
   }
