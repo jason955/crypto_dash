@@ -3,7 +3,7 @@ import ReactTable from "react-table";
 import { AgGridReact } from 'ag-grid-react';
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
-import BackendTable from '../basic/backend-table';
+import AdminTable from './admin-table';
 import axios from 'axios';
 
 /*************************
@@ -84,7 +84,7 @@ class TrackersEdit extends React.Component {
 
   render(props) {
     return (
-      <BackendTable
+      <AdminTable
        name={"Trackers"}
        columns = {this.state.columns}
        data = {this.state.data}

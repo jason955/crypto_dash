@@ -47,9 +47,7 @@ class LineGraphCard extends React.Component {
   render(props) {
 
     if (this.props.data[0] !== undefined) {
-			console.log(this.props.data)
 			let html = this.createHTML(this.props.data)
-			console.log(html)
 	    return (
 	      <Card>
 	        <Card.Header>Featured</Card.Header>

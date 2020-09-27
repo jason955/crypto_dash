@@ -1,7 +1,7 @@
 import React from 'react';
-import MaterialTable from 'material-table';
 import axios from 'axios';
-import './login.css'; // Tell webpack that Button.js uses these styles
+import '../style/login.css'; // Tell webpack that Button.js uses these styles
+import { connect } from 'react-redux'
 
 /*************************
 * Landing page for user
@@ -20,11 +20,9 @@ class Login extends React.Component{
     const form = event.target;
     let usern = form[0].value;
     let pass = form[1].value;
-    console.log(usern)
-    console.log(pass)
     let config = {
       method: "get",
-      url: 'http://localhost:4000/api/accounts',
+      url: 'http://localhost:4000/api/user/' + usern + '/' + pass,
       headers: {
         'Content-Type': 'application/json'
       }
@@ -32,17 +30,13 @@ class Login extends React.Component{
 
     axios(config)
     .then(response => {
-      let data = {username: "DrJ", password: "a"};
+      let data = response.data.data
       let final_data = [];
-      let ret_data = data;
       if (data.username === usern && data.password === pass) {
-        console.log("woop")
-        this.props.history.push("/tabs");
+        this.props.history.push("/landing/" + data._id);
       }
-
     })
     .catch(error => {
-      this.setState({...this.state, isFetching: false});
       console.log(error);
     });
   }
@@ -61,4 +55,4 @@ class Login extends React.Component{
     )
   }
 }
-export default Login;
+export default connect()(Login)

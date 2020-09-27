@@ -7,7 +7,9 @@ let User = new Schema({
     },
     password: {
         type: String
-    }
+    },
+    activities:[{name: String, id: String}]
+    
 });
 
 module.exports = mongoose.model('User', User);

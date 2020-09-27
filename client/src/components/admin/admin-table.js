@@ -7,13 +7,14 @@ import axios from 'axios';
 * backend tables
 * can add, delete, and edit
 *************************/
-class BackendTable extends React.Component{
+class AdminTable extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
       columns: this.props.columns,
       data: this.props.data,
     }
+    this.process = this.process.bind(this);
   }
 
   /*************************
@@ -36,12 +37,18 @@ class BackendTable extends React.Component{
     this.props.updateDB(data, flag);
   }
 
+  process(data) {
+    console.log(data)
+    return data
+  }
+
   render(props) {
+    let data = this.process(this.state.data)
     return (
       <MaterialTable
         title={this.props.name}
         columns={this.state.columns}
-        data={this.state.data}
+        data={data}
         editable={{
           onRowAdd: (newData) =>
             new Promise((resolve) => {
@@ -86,4 +93,4 @@ class BackendTable extends React.Component{
     );
   }
 }
-export default BackendTable;
+export default AdminTable;

@@ -6,10 +6,9 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import AccountsEdit from './crud/accounts-edit'
-import TrackersEdit from './crud/trackers-edit'
-import UsersEdit from './crud/users-edit'
-import Popup from './basic/popup'
+import AccountsEdit from '../admin/accounts-edit'
+import TrackersEdit from '../admin/trackers-edit'
+import UsersEdit from '../admin/users-edit'
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -73,7 +72,6 @@ export default function SimpleTabs() {
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
-        <Popup />
         <AccountsEdit />
       </TabPanel>
       <TabPanel value={value} index={1}>

@@ -6,15 +6,11 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import AccountsEdit from './crud/accounts-edit'
-import TrackersEdit from './crud/trackers-edit'
-import UsersEdit from './crud/users-edit'
-import Popup from './basic/popup'
-import AccountGraphs from './landing/accounts-graph'
-import TrackerGraphs from './landing/trackers-graph'
-import CryptoKingdom from './landing/crypto-kingdom'
-import logout from './logout.png'
-import styles from './style.css';
+import AccountGraphs from '../landing/accounts-graph'
+import TrackerGraphs from '../landing/trackers-graph'
+import CryptoKingdom from '../landing/crypto-kingdom'
+import logout from '../images/logout.png'
+import styles from '../style/style.css';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -60,14 +56,12 @@ const useStyles = makeStyles((theme) => ({
 * Tabs for separate displays yo
 * TODO: add axios calls to here
 *************************/
-export default function SimpleTabs() {
+ export default function SimpleTabs(props) {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
-
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-
   return (
     <div >
       <AppBar position="static">
@@ -75,9 +69,8 @@ export default function SimpleTabs() {
           <Tab label="Accounts" {...a11yProps(0)} />
           <Tab label="Trackers" {...a11yProps(1)} />
           <Tab label="Crypto" {...a11yProps(2)} />
-
           <div>
-             <img className="logout" src={logout} alt="LOGOUT" />
+             <img className="logout" src={logout} alt="LOGOUT"  />
           </div>
         </Tabs>
       </AppBar>

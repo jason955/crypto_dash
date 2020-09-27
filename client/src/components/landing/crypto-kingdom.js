@@ -1,11 +1,4 @@
 import React from 'react';
-import ReactTable from "react-table";
-import { AgGridReact } from 'ag-grid-react';
-import 'ag-grid-community/dist/styles/ag-grid.css';
-import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
-import BackendTable from '../basic/backend-table';
-import axios from 'axios';
-import bg from '../money.jpg'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 
