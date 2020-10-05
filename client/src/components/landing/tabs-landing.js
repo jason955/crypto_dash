@@ -10,7 +10,6 @@ import AccountGraphs from '../landing/accounts-graph'
 import TrackerGraphs from '../landing/trackers-graph'
 import CryptoKingdom from '../landing/crypto-kingdom'
 import logout from '../images/logout.png'
-import styles from '../style/style.css';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;

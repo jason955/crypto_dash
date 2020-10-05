@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import '../style/login.css'; // Tell webpack that Button.js uses these styles
 import { connect } from 'react-redux'
 
 /*************************
