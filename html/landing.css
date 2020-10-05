@@ -94,17 +94,16 @@ img {
   margin-inline-end: 0px;
   margin-left:15px;
 }
-.content {
+.contentB {
   display:flex;
   border: 1px solid black;
-  padding-left:10px;
+  color: black;
+
 }
 .text {
-
 }
 .view {
   flex-direction:row;
-  background-image: url("view.png");
   background-size: 100%;
   background-position: center;
 
@@ -112,7 +111,6 @@ img {
 
 .ignore {
   flex-direction:row;
-  background-image: url("ignore.png");
   background-size: 100%;
   background-position: center;
 
