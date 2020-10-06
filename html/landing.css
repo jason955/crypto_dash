@@ -33,7 +33,6 @@ nav li {
 
 section.content {
   display:flex;
-  height:800px;
   font-size: 0;
   margin-top:15px;
   margin-bottom:15px;
@@ -42,27 +41,22 @@ section.content {
 section.news {
   flex-direction: row;
   font-size: 12px;
-  height:800px;
-  width:20%;
+  width:30%;
+  margin-right: 10px;
 }
 
 section.alerts {
   background-color: white;
   flex-direction: column;
   font-size: 12px;
-  height:300px;
-  margin-right: 10px;
-  margin-bottom:10px;
   border:1px solid black;
   box-shadow: 1px 1px 2px #888888;
 
 }
 
 section.view {
-  background-color: white;
   flex-direction: row;
   font-size:12px;
-  height:800px;
   width:80%;
   border:1px solid black;
   box-shadow: 1px 1px 2px #888888;
@@ -86,36 +80,63 @@ img {
   height:100%;
   width:100%;
 }
-.interact{
-  height:100%;
-  width:25px;
-  margin-block-start: .75em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-  margin-left:15px;
+
+.calendar {
+  height:12.5px;
+  width:12.5px;
+  margin:0px 5px 0px 5px
 }
-.contentB {
+
+.interact{
+  width:80px;
+}
+.contentB{
   display:flex;
   border: 1px solid black;
-  color: black;
-
+  color:gray;
+  padding:5px;
+  height:80px;
+  background-color:  rgb(39, 49, 56);
+}
+.contentB:hover {
+  background-color: rgb(221, 23, 59);
+  color:white;
 }
 .text {
+  margin: 10px 15px 15px 15px;
 }
-.view {
-  flex-direction:row;
-  background-size: 100%;
-  background-position: center;
-
-}
-
-.ignore {
-  flex-direction:row;
-  background-size: 100%;
-  background-position: center;
-
+.title{
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color:white;
 }
 
-.delete {
-  flex-direction:row;
+.summary {
+  font-size:12px;
+  margin-top:5px;
+  margin-bottom:5px;
+}
+
+.date {
+  font-size: 10px;
+}
+
+
+/*table*/
+table {
+  font-family: arial, sans-serif;
+  color:black;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
 }
