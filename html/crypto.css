@@ -1,0 +1,143 @@
+body {
+  background: white;
+  color: white;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  margin: 20px;
+  padding: 0;
+}
+
+header {
+  background-color: black;
+}
+
+header div {
+  text-align: center;
+  background-color: white;
+  color:black;
+}
+nav {
+  font-size:18px;
+  text-transform: uppercase;
+  box-shadow: 1px 1px 2px #888888;
+}
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+nav li {
+  display: inline-block;
+  padding:15px;
+}
+/* FOOTER */
+footer {
+  background: black;
+  color: gray;
+  font-size: 12px;
+  padding: 20px 20px;
+  text-align: center;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+li:hover{
+  background-color: rgb(39, 49, 56);
+}
+
+.overview {
+  display:flex;
+  color:black;
+  padding:5px;
+}
+
+.graph {
+  margin-top:25px;
+  border:1px solid black;
+  color:black;
+}
+.nav-graphs {
+  display:flex;
+}
+.nav-graphs div {
+  flex-direction: row;
+  width:50%;
+}
+.tab-graphs {
+  display:flex;
+}
+.tab-graphs div {
+  flex-direction: row;
+}
+.time {
+  display:flex;
+}
+.time div {
+  flex-direction: row;
+}
+.view-graphs {
+  display:flex;
+}
+.g-1 {
+  height:250px;
+  width:250px;
+  margin-top:25px;
+  margin-bottom:15px;
+  margin-left:15%;
+  border:1px solid black;
+  flex-direction:row;
+}
+
+
+.math {
+  margin-top:20px;
+  background-color: yellow;
+  height:300px;
+  border:1px solid black;
+}
+
+.total {
+  flex-direction: row;
+  border-right: 1px solid black;
+}
+.top-assets {
+  flex-direction: row;
+}
+.top-assets ul {
+  display:flex;
+  padding-inline-start: 5px;
+  margin-block-start: 2px;
+  margin-block-end: 2px;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+.top-assets ul li {
+  flex-direction: row;
+  list-style: none;
+  margin-left: 10px;
+}
+img {
+  height:10px;
+  transform: scale(1.4);
+
+}
+i {
+  height:10px;
+  color:white;
+  -webkit-filter: invert(85%);
+  transform: scale(1.4);
+
+}
+p {
+    padding-right: 14px;
+    margin-block-start: 2px;
+    margin-block-end: 2px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+b {
+  margin-left:10px;
+}

@@ -54,14 +54,22 @@ section.alerts {
 
 }
 
-section.view {
+section.view-blog {
+  color: black;
   flex-direction: row;
   font-size:12px;
   width:80%;
   border:1px solid black;
   box-shadow: 1px 1px 2px #888888;
 }
-
+section.view {
+  color: black;
+  flex-direction: row;
+  font-size:12px;
+  width:80%;
+  border:1px solid black;
+  box-shadow: 1px 1px 2px #888888;
+}
 /* FOOTER */
 footer {
   background: black;
@@ -139,4 +147,14 @@ td, th {
 
 tr:nth-child(even) {
   background-color: #dddddd;
+}
+
+/*nav*/
+a {
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+li:hover{
+  background-color: rgb(39, 49, 56);
 }
