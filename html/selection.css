@@ -1,3 +1,38 @@
 section div ul li {
   margin-top:10px;
 }
+
+.food-header {
+  display:flex;
+}
+.food-header div {
+  flex-direction:row;
+}
+.food-content {
+  display:flex;
+}
+.food-content div {
+  flex-direction:row;
+}
+
+.ingredients {
+  width:10%
+}
+
+.instructions {
+  width:90%
+}
+img {
+  height:100%;
+  width:100%;
+}
+.food-pic {
+  width:10%
+}
+
+.food-title {
+  width:90%;
+}
+ h1 {
+   font-size: 48px;
+ }
