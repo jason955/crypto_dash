@@ -1,94 +1,85 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body {font-family: Arial, Helvetica, sans-serif;}
-
-/* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-/* Modal Content */
-.modal-content {
-  background-color: #fefefe;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-}
-
-/* The Close Button */
-.close {
-  color: #aaaaaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" content="#000000">
+  <link rel="stylesheet" href="landing.css" />
+  <script src="https://cdn.jsdelivr.net/npm/simple-jscalendar@1.4.4/source/jsCalendar.min.js" integrity="sha384-0LaRLH/U5g8eCAwewLGQRyC/O+g0kXh8P+5pWpzijxwYczD3nKETIqUyhuA8B/UB" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-jscalendar@1.4.4/source/jsCalendar.min.css" integrity="sha384-44GnAqZy9yUojzFPjdcUpP822DGm1ebORKY8pe6TkHuqJ038FANyfBYBpRvw8O9w" crossorigin="anonymous">
+  <title>Crypto Dash</title>
 </head>
 <body>
-
-<h2>Modal Example</h2>
-
-<!-- Trigger/Open The Modal -->
-<button id="myBtn">Open Modal</button>
-
-<!-- The Modal -->
-<div id="myModal" class="modal">
-
-  <!-- Modal content -->
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <p>goal calendar</p>
-  </div>
-
-</div>
-
-<script>
-// Get the modal
-var modal = document.getElementById("myModal");
-
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks the button, open the modal
-btn.onclick = function() {
-  modal.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-</script>
-
+  <header>
+    <nav>
+      <ul>
+        <li><a href="landing.html">Accounts</a></li>
+        <li><a href="goals.html">Goals</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="crypto.html">Crypto</a></li>
+      </ul>
+    </nav>
+  </header>
+  <section class="content">
+    <section class="news">
+      <section class="alerts">
+        <section class="contentB">
+          <div class="interact">
+              <img src="yoda.png" alt="yoda">
+          </div>
+          <section class="text">
+            <div class="title">Smell Magic in the air. or maybe barbecue</div>
+            <div class="summary">With what mingled joy and sorrow do I take up the pen to w...</div>
+            <div class="date"><img src="calendar.png" class="calendar" alt="calendar">Sept 18, 2017</div>
+          </section>
+        </section>
+        <section class="contentB">
+          <div class="interact">
+              <img src="yoda.png" alt="yoda">
+          </div>
+          <section class="text">
+            <div class="title">Smell Magic in the air. or maybe barbecue</div>
+            <div class="summary">With what mingled joy and sorrow do I take up the pen to w...</div>
+            <div class="date"><img src="calendar.png" class="calendar" alt="calendar">Sept 18, 2017</div>
+          </section>
+        </section>
+        <section class="contentB">
+          <div class="interact">
+              <img src="yoda.png" alt="yoda">
+          </div>
+          <section class="text">
+            <div class="title">Smell Magic in the air. or maybe barbecue</div>
+            <div class="summary">With what mingled joy and sorrow do I take up the pen to w...</div>
+            <div class="date"><img src="calendar.png" class="calendar" alt="calendar">Sept 18, 2017</div>
+          </section>
+        </section>
+        <section class="contentB">
+          <div class="interact">
+              <img src="yoda.png" alt="yoda">
+          </div>
+          <section class="text">
+            <div class="title">Smell Magic in the air. or maybe barbecue</div>
+            <div class="summary">With what mingled joy and sorrow do I take up the pen to w...</div>
+            <div class="date"><img src="calendar.png" class="calendar" alt="calendar">Sept 18, 2017</div>
+          </section>
+        </section>
+        <section class="contentB">
+          <div class="interact">
+              <img src="yoda.png" alt="yoda">
+          </div>
+          <section class="text">
+            <div class="title">Smell Magic in the air. or maybe barbecue</div>
+            <div class="summary">With what mingled joy and sorrow do I take up the pen to w...</div>
+            <div class="date"><img src="calendar.png" class="calendar" alt="calendar">Sept 18, 2017</div>
+          </section>
+        </section>
+      </section>
+    </section>
+    <section class="view">
+      <div class="auto-jsCalendar"></div>
+  </section>
+  <footer>
+    777 S Eden St Baltimore, MD • 410-916-6586 • jasonraven68@gmail.com
+  </footer>
 </body>
 </html>

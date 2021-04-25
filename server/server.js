@@ -8,6 +8,7 @@ const movieRouter = require('./routes/movie-router')
 const userRouter = require('./routes/user-router')
 const accountRouter = require('./routes/account-router')
 const trackerRouter = require('./routes/tracker-router')
+const eventRouter = require('./routes/event-router')
 
 const PORT = 4000;
 const app = express();
@@ -32,6 +33,7 @@ app.use('/api', movieRouter)
 app.use('/api', userRouter)
 app.use('/api', accountRouter)
 app.use('/api', trackerRouter)
+app.use('/api', eventRouter)
 
 app.listen( PORT, () => {
     console.log("Server is running on port " + PORT);

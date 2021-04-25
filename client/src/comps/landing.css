@@ -1,4 +1,4 @@
-body {
+.JasonContainer {
   background: white;
   color: white;
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
@@ -6,34 +6,8 @@ body {
   padding: 0;
 }
 
-header {
-  background-color: black;
-}
-
-header div {
-  text-align: center;
-  background-color: white;
-  color:black;
-}
-nav {
-  font-size:18px;
-  text-transform: uppercase;
-  box-shadow: 1px 1px 2px #888888;
-}
-nav ul {
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-}
-
-nav li {
-  display: inline-block;
-  padding:15px;
-}
-
 section.content {
   display:flex;
-  font-size: 0;
   margin-top:15px;
   margin-bottom:15px;
 }

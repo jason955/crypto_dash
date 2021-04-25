@@ -144,10 +144,7 @@ getUserData = async (req, res) => {
         }
         return res.status(200).json({ success: true, data: user })
     }).catch(err => console.log(err))
-    console.log("BB")
 
-    console.log(user)
-    
     // let accounts = await Account.find({ _id: o }, (err, account) => {
     //     if (err) {
     //         return res.status(400).json({ success: false, error: err })
