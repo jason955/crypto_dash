@@ -49,11 +49,29 @@ const headingClasses = {
   l6: 'lg:grid-cols-6',
   l7: 'lg:grid-cols-7',
 };
+
+const mouseEnter = (e) => {
+  e.preventDefault();
+  e.target.style.color = 'black'
+  e.target.style.backgroundColor = "grey"
+  e.target.style.cursor = 'pointer'
+}
+const mouseLeave = (e) =>{
+  e.preventDefault();
+  e.target.style.backgroundColor = "white"
+}
+
+const handleClick = (e) => {
+  e.preventDefault();
+}
+
 export function MonthlyBody2<MonthData>({
   omitDays,
   events,
   renderDay,
+  click,
 }: MonthlyBodyProps<MonthData>) {
+
   let { days } = useMonthlyCalendar();
   let { headings, daysToRender, padding } = handleOmittedDays({
     days,
@@ -93,6 +111,9 @@ export function MonthlyBody2<MonthData>({
               key={day.toISOString()}
               aria-label={`Events for day ${dayNumber}`}
               className="h-48 p-2 border-b-2 border-r-2"
+              onClick={(e) => {click(day); handleClick(e)}}
+              onMouseEnter={(e) => mouseEnter(e)}
+              onMouseLeave={(e) => mouseLeave(e)}
             >
               <div className="flex justify-between">
                 <div className="font-bold">{dayNumber}</div>

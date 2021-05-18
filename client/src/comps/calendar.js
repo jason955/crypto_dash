@@ -20,8 +20,14 @@ class MyMonthlyCalendar extends React.Component {
       setCurrentMonth: startOfMonth(new Date())
     };
   }
+
   setCurrentMonth(date){
     this.setState({currentMonth:date})
+  }
+
+  click(date) {
+    console.log(date)
+    this.props.click(date);
   }
 
   render(props) {
@@ -41,6 +47,7 @@ class MyMonthlyCalendar extends React.Component {
       >
         <MonthlyNav />
         <MonthlyBody2
+          click={(date) => this.click(date)}
           events={evs}
           renderDay={data =>
             data.map((item, index) => (

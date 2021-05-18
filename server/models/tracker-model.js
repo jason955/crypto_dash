@@ -7,6 +7,9 @@ let Tracker = new Schema({
     },
     goal: {
         type: String
+    },
+    extras: {
+        type: [String]
     }
 });
 
