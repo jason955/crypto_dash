@@ -47,6 +47,20 @@ const options = [
   'one', 'two', 'three'
 ];
 const defaultOption = options[0];
+const amount = (
+  <div>
+    <p>Please select your amount:</p>
+    <input type="radio" name="amount" value="small" />
+    <label for="small">small</label>
+    <input type="radio" id="medium" name="amount" value="medium" />
+    <label for="medium">medium</label>
+    <input type="radio" id="large" name="amount" value="large" />
+    <label for="large">large</label>
+  </div>
+);
+const datetime = (
+  <input type="datetime-local" id="datetime" name="datetime" />
+)
 /*************************
 * Landing page for user
 *************************/
@@ -58,10 +72,13 @@ class AddEventBody extends React.Component{
     this.state = {
       title: '',
       date:this.props.date,
-      amount: 0
+      amount: 0,
+      extraInputs: [],
     };
+    this.defaultOption = "";
 
   }
+
 
   handleClick() {
   }
@@ -71,7 +88,7 @@ class AddEventBody extends React.Component{
   }
 
   handleSubmit(e) {
-    //e.preventDefault();
+    //e.preventDefault(); uncomment to reload page on submit
      let data = {
        title:this.state.title,
        date:this.props.date,
@@ -80,23 +97,53 @@ class AddEventBody extends React.Component{
      }
      this.props.submitEvent(data)
   }
-
+  onDropdownChange(e) {
+    let val = e.value;
+    console.log(val)
+    console.log(this.props.trackers)
+    let tracks = this.props.trackers;
+    let html = tracks.map((obj) =>
+      {
+        if (obj.name === val) {
+          return this.generateExtraInputs(obj.extras)
+        }
+      }
+    )
+    this.setState({extraInputs:html})
+  }
+  generateExtraInputs(extra) {
+    var html = extra === undefined ? [] : extra.map((val) =>
+        {
+           if (val === "amount") {
+             return amount
+           }
+           else if (val === "time") {
+             return datetime
+           }
+        }
+      );
+    return html;
+  }
   render(props) {
-    let options = this.props.options.map((i) => i.name)
-    console.log(options)
+    //let options = this.props.options.map((i) => i.name)
+    let html = []
+    let trackers = this.props.trackers;
+    let options = trackers.map((obj) => obj.name)
+    let extras = trackers.map((obj) => obj.extras)
+    let defaultOption = options[0]
+    console.log(trackers)
+    html = this.state.extraInputs.length === 0 ? this.generateExtraInputs(extras[0]) : this.state.extraInputs;
+
+
     return (
       <div>
         <form onSubmit={(e) => this.handleSubmit(e)}>
+          <Dropdown options={options} onChange={(e) => this.onDropdownChange(e)} value={defaultOption} placeholder="Select an option" />
 
-            <Dropdown options={options} onChange={this._onSelect} value={options[0]} placeholder="Select an option" />;
-            <input name="amount" type="number" value={this.state.amount} onChange={(e) => this.handleChange(e)} />
+          {html}
           <input type="submit" value="Submit" />
         </form>
-        <button
-          onClick={(e) => this.handleClick(e)}
-          >
-              jason
-        </button>
+        <button onClick={(e) => this.handleClick(e)} />
       </div>
     )
   }

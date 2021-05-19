@@ -22,7 +22,7 @@ class GoalView extends React.Component{
       events:[],
       modal: false,
       date:'',
-      options:[]
+      trackers:[]
     }
 
   }
@@ -31,7 +31,7 @@ class GoalView extends React.Component{
   *************************/
   componentDidMount() {
     this.fetchEvents();
-    this.fetchOptions();
+    this.fetchTrackers();
   }
 
   fetchEvents() {
@@ -52,7 +52,7 @@ class GoalView extends React.Component{
       });
   }
 
-  fetchOptions() {
+  fetchTrackers() {
     let config = {
       method: "get",
       url: 'http://localhost:4000/api/trackers',
@@ -62,7 +62,7 @@ class GoalView extends React.Component{
     };
     axios(config)
       .then(response => {
-        this.setState({options:response.data.data})
+        this.setState({trackers:response.data.data})
       })
       .catch(function (error) {
         console.log(error);
@@ -111,7 +111,7 @@ class GoalView extends React.Component{
         <Modal
           open={this.state.modal}
           close={() => this.openModal()}
-          modalBody={(<AddEventBody date={this.state.date} options={this.state.options} submitEvent={(data) => this.addEvent(data)}/>)}
+          modalBody={(<AddEventBody date={this.state.date} trackers={this.state.trackers} submitEvent={(data) => this.addEvent(data)}/>)}
         />
         <Nav />
         <section className="contentC">

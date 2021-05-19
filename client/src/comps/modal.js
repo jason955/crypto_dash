@@ -77,7 +77,7 @@ class Modal extends React.Component{
             onMouseEnter={(e) => this.mouseEnter(e)}
             onMouseLeave={(e) => this.mouseLeave(e)}>
             &times;
-          </button>
+          </button><br /><br />
           {this.props.modalBody}
         </div>
       </div>
